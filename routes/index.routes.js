@@ -5,5 +5,7 @@ const router = express.Router();
 router.get("/", (req, res, next) => {
   res.render("index");
 });
-
+router.get("/logged-in", (req, res, next) => {
+  res.render("logged-index");
+});
 module.exports = router;
