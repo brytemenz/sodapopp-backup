@@ -5,9 +5,8 @@ const userSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
-
     },
     username: {
       type: String,
@@ -26,9 +25,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-     confirmPassword: {
+    confirmPassword: {
       type: String,
-      required: true,
+      // required: true,
     },
     photo: {
       type: String,
@@ -40,9 +39,8 @@ const userSchema = new Schema(
     },
     course: {
       type: String,
-      enum: ["Web Dev", "Data Analytics", "UX,UI", "Cybersecurity"]
+      enum: ["Web Dev", "Data Analytics", "UX,UI", "Cybersecurity"],
     },
-  
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -10,3 +10,7 @@ a {
 h1 {
   color: 15px;
 }
+.logo-img{
+  max-width: 150px;
+  height:auto ;
+}
