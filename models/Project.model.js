@@ -3,12 +3,10 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const projectSchema = new Schema(
   {
-    project: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User"
+    // project: {
+      user:{type:Schema.Types.ObjectId, ref:'User'},
 
-    },
+    // },
     projectName: {
       type: String,
       required: false,
@@ -16,7 +14,7 @@ const projectSchema = new Schema(
       trim: true,
     },
  
-    projectPhoto: {
+    projectPhoto:{
       type: String,
       // required: true,
     },
@@ -40,7 +38,7 @@ const projectSchema = new Schema(
 
     },
     likes: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "User"
   
       }],

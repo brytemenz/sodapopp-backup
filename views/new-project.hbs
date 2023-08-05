@@ -1,0 +1,26 @@
+{{!-- creating a new project --}}
+
+<h1>Let's create a new project!</h1>
+<form action="project/create" method = "POST">
+<label for="projectName">Project Name:</label>
+        <input type="text" id="projectName" name="projectName" required>
+        <br>
+
+        <label for="projectDescription">Project Description:</label>
+        <input type="text" id="projectDescription" name="projectDescription" required>
+        <br>
+
+<label for="projectPhoto">Project Photo:</label>
+       <input type="file" name="projectPhoto"  id= "projectPhoto" name="projectPhoto" required>
+
+        <br>
+
+        <label for="projectLink">Project Link:</label>
+        <input type="text" id="projectLink" name="projectLink" required>
+        <br>
+
+        <label for="githubLink">Github Link:</label>
+        <input type="text" id="githubLink" name="githubLink" required>
+        <br>
+<button>create</button>
+        </form>

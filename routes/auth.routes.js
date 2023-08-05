@@ -130,11 +130,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           }
 
           // Add the user object to the session object
+          req.session.currentUser = user.username;
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/logged-index");
+          res.redirect("/logged-in");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
