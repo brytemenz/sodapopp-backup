@@ -27,22 +27,33 @@ const projectSchema = new Schema(
         // required: true,
 
     },
-    gitHubLink: {
+    githubLink: {
         type: String,
         // required: true,
 
     },
+
     dateOfCreation: {
         type: Date,
         // required: true,
 
     },
+
     likes: [{
         type: Schema.Types.ObjectId,
         ref: "User"
   
       }],
-    
+
+    collaborators: [
+    {
+      collaboratorName: String,
+      githubUsername: String,
+      collaborationMessage: String,
+
+      user: { type:Schema.Types.ObjectId, ref: "User" },
+    },
+  ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const Project = require("../models/Project.model");
 
+const transporter = require("../middleware/emailTransporter")
+
 const fileUploader = require("../config/cloudinary.config");
 
 // route for creating project page
@@ -121,5 +123,31 @@ router.post("/:id/edit", fileUploader.single("projectPhoto"), (req, res) => {
       console.log(err);
     });
 });
+
+//collaborate route
+router.post("/collaborate", async (req, res) => {
+  try {
+    const {collaboratorName,githubUsername,collaborationMessage} = req.body;
+
+    const mailOptions = {
+      from: "sodapopp40@gmail.com",
+        to: req.session.currentUser.email,
+      subject: `${collaboratorName} wants to work on your project!`,
+      text: `Hi! I am ${collaboratorName} and my github username is ${githubUsername}\n I saw your project on Sodapopp! and ${collaborationMessage}`,
+    };
+
+    // Send the email
+    await transporter.sendMail(mailOptions);
+
+    res.redirect("/logged-in");
+  } catch (error) {
+    console.error("Error sending email:", error);
+
+    res
+      .status(500)
+      .render("error", { error: "Error sending collaboration request." });
+  }
+});
+
 
 module.exports = router;
