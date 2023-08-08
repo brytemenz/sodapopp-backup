@@ -1,0 +1,27 @@
+<!-- edit-project.hbs -->
+
+<h1>Edit Project</h1>
+
+<form action="/project/{{oneProjectToBeEdited._id}}/edit" method="POST" enctype="multipart/form-data">
+  <label for="projectName">Project Name:</label>
+  <input type="text" id="projectName" name="projectName" value="{{oneProjectToBeEdited.projectName}}" required>
+  <br>
+
+  <label for="projectDescription">Project Description:</label>
+  <input type="textarea" id="projectDescription" name="projectDescription" value="{{oneProjectToBeEdited.projectDescription}}" required>
+  <br>
+
+  <label for="projectLink">Project Link:</label>
+  <input type="text" id="projectLink" name="projectLink" value="{{oneProjectToBeEdited.projectLink}}" required>
+  <br>
+
+  <label for="githubLink">Github Link:</label>
+  <input type="text" id="githubLink" name="githubLink" value="{{oneProjectToBeEdited.githubLink}}" required>
+  <br>
+
+  <label for="projectPhoto">Project Photo:</label>
+  <input type="file" name="projectPhoto" id="projectPhoto" value=" {{oneProjectToBeEdited.projectPhoto}}">
+  <br>
+
+  <button type="submit">Update Project</button>
+</form>
