@@ -75,7 +75,9 @@
   <h1>Projects</h1>
   {{#each allProjects}}
 {{projectName}}
-<img src="{{projectPhoto}}" alt="{{projectName}} Cover Photo" width="300" height="200">
+ <a href="{{projectLink}}" target="_blank"> <!-- Add the anchor tag around the image -->
+      <img src="{{projectPhoto}}" alt="{{projectName}}Cover Photo" width="300" height="200" >
+    </a>
         <a href="/project/{{_id}}" > <button class="button" type="submit">See Project Details</button></a>
         {{!-- edit --}}
 

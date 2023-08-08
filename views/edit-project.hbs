@@ -2,21 +2,25 @@
 
 <h1>Edit Project</h1>
 
-<form action="/project/update/{{project._id}}" method="POST">
- <label for="projectName">Project Name:</label>
+<form action="/project/{{oneProjectToBeEdited._id}}/edit" method="POST" enctype="multipart/form-data">
+  <label for="projectName">Project Name:</label>
   <input type="text" id="projectName" name="projectName" value="{{oneProjectToBeEdited.projectName}}" required>
   <br>
 
   <label for="projectDescription">Project Description:</label>
-  <input type="text" id="projectDescription" name="projectDescription" value="{{oneProjectToBeEdited.projectDescription}}" required>
+  <input type="textarea" id="projectDescription" name="projectDescription" value="{{oneProjectToBeEdited.projectDescription}}" required>
   <br>
 
   <label for="projectLink">Project Link:</label>
   <input type="text" id="projectLink" name="projectLink" value="{{oneProjectToBeEdited.projectLink}}" required>
   <br>
 
-  <label for="githubLink">GitHub Link:</label>
-  <input type="text" id="githubLink" name="githubLink" value="{{oneProjectToBeEdited.githubLink}}" required>
+  <label for="gitHubLink">GitHub Link:</label>
+  <input type="text" id="gitHubLink" name="gitHubLink" value="{{oneProjectToBeEdited.gitHubLink}}" required>
+  <br>
+
+  <label for="projectPhoto">Project Photo:</label>
+  <input type="file" name="projectPhoto" id="projectPhoto" value=" {{oneProjectToBeEdited.projectPhoto}}">
   <br>
 
   <button type="submit">Update Project</button>

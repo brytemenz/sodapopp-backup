@@ -98,21 +98,28 @@ router.get("/:id/edit", (req, res) => {
 //   }
 // });
 
-// router.post("/:id/edit", (req, res) => {
-//   console.log("req.body");
-//   console.log(req.body);
-//   console.log("req.params");
-//   console.log(req.params);
+router.post("/:id/edit", fileUploader.single("projectPhoto"), (req, res) => {
+  console.log("req.body");
+  console.log(req.body);
+  console.log("req.params");
+  console.log(req.params);
 
-//   const { title, genre, plot, cast } = req.body;
+  const { projectName, projectDescription, projectLink, githubLink } = req.body;
 
-//   Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast })
-//     .then((updatedMovie) => {
-//       res.redirect("/movies");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
+  Project.findByIdAndUpdate(req.params.id, {
+    projectName,
+    projectDescription,
+    projectLink,
+    githubLink,
+    user: req.session.currentUser._id,
+    projectPhoto: req.file.path,
+  })
+    .then((updatedProject) => {
+      res.redirect("/logged-in");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 module.exports = router;
