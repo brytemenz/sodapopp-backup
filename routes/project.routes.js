@@ -149,5 +149,56 @@ router.post("/collaborate", async (req, res) => {
   }
 });
 
+  //route for likes
+ router.post("/:id/like", (req, res)=>{
+  const projectId = req.params.id
+  const userId = req.session.currentUser._id
+Project.findById(projectId)
+.then((project)=>{
+  res.redirect(`/project/${projectId}`);
+  // res.redirect('/logged-in')
+  const userLiked = project.likes.includes (userId)
+  if (userLiked) {
+    project.likes.pull(userId)
+    
+  } else {
+    project.likes.push(userId)
+  }
+  return project.save();
+
+})
+.then (() =>{
+  res.redirect(`/project/${projectId}`);
+})
+.catch((err) => {
+  console.log(err);
+});
+})
+
+//route for comments
+router.post("/comment", (req, res)=>{
+  const {commentBody, projectId} = req.body
+  // const {projectId} = req.params
+
+  const userId = req.session.currentUser._id
+  console.log(req.session.currentUser)
+Project.findByIdAndUpdate(projectId,{$push:{comments:{user:req.session.currentUser,commentBody}}})
+.then((project)=>{
+  res.redirect(`/project/${projectId}`);
+ 
+  // project.comments.push({
+  //   text: commentBody, 
+  //   user: req.session.currentUser._id
+
+  // })
+  // return project.save();
+
+})
+
+.catch((err) => {
+  console.log(err);
+});
+})
+
 
 module.exports = router;

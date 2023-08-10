@@ -4,8 +4,12 @@ const router = express.Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
-});
+  Project.find()
+  .then ((projects)=>{
+    res.render("index", {projects})
+  })
+  
+  });
 router.get("/logged-in", (req, res, next) => {
   const username = req.session.currentUser;
   Project.find({user:username._id})
@@ -14,4 +18,5 @@ router.get("/logged-in", (req, res, next) => {
   })
 
 });
+
 module.exports = router;

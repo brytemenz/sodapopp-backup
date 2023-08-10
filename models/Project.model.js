@@ -1,5 +1,11 @@
 const { Schema, model } = require("mongoose");
 
+
+const commentSchema = new Schema({
+    user: { type:Schema.Types.ObjectId, ref: "User" },
+    commentBody: String,
+  
+})
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const projectSchema = new Schema(
   {
@@ -54,6 +60,8 @@ const projectSchema = new Schema(
       user: { type:Schema.Types.ObjectId, ref: "User" },
     },
   ],
+
+  comments: [commentSchema]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

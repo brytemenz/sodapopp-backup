@@ -66,42 +66,18 @@
 <br>
 <br>
 <section>
-   <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Talking Rubbish</h5>
-        <p class="card-text">TAn interesting game created by her Excellency Kiruba.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Debugging Hunt</h5>
-        <p class="card-text">Created by one annoying boy from Ghana.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Save the Galaxy</h5>
-        <p class="card-text">Save Baby yoda from darth vader, created by magnificent Maria</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-</div>
+  <h1>Projects</h1>
+  {{#each projects}}
+{{projectName}}
+ <a href="{{projectLink}}" target="_blank"> <!-- Add the anchor tag around the image -->
+      <img src="{{projectPhoto}}" alt="{{projectName}}Cover Photo" width="300" height="200" >
+    </a>
+        <a href="/project/{{_id}}" > <button class="button" type="submit">See Project Details</button></a>
+      <form action="/project/{{_id}}/like" method = "POST">
+<button> {{likes.length}} likes</button></form>
+
+
+
+  {{!-- id="commentBody" cols="30" rows="10" --}}
+    {{/each}}
 </section>

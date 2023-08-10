@@ -74,7 +74,9 @@
 </div>
 
 
-<button>Like</button>
+{{!-- <button>Like</button> --}}
+<form action="/project/{{_id}}/like" method = "POST">
+<button> {{likes.length}} likes</button></form>
 
 <h2>{{projectName}}</h2>
 <p>Description:  <br>{{
@@ -83,5 +85,15 @@ projectDescription
 <a href="{{projectLink}}">Project Link</a>
 <a href="{{githubLink}}">Github Link</a>
 
+  {{!-- for testing!! --}}
+<h2>comments!</h2>
+ {{#each project.comments}}
+ {{commentBody}}
+{{/each}}
+<form action="/project/comment" method = "POST">
+<input type="hidden" name = "projectId" value = {{_id}}>
+<textarea name="commentBody" ></textarea>
+<button>Add Comment</button>
+</form>
 
   
