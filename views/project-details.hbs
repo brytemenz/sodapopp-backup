@@ -77,6 +77,7 @@
 {{!-- <button>Like</button> --}}
 <form action="/project/{{_id}}/like" method = "POST">
 <button> {{likes.length}} likes</button></form>
+<button>Fund Me!</button>
 
 <h2>{{projectName}}</h2>
 <p>Description:  <br>{{
@@ -94,6 +95,8 @@ projectDescription
 <input type="hidden" name = "projectId" value = {{_id}}>
 <textarea name="commentBody" ></textarea>
 <button>Add Comment</button>
+
+
 </form>
 
   
