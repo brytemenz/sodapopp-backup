@@ -1,24 +1,65 @@
-<div id="form">
-  <h2>Sign Up</h2>
+{{!-- <div class="form-container">
+  <h1>SODAPOPP!</h1>
+  <h2>JOIN US</h2>
   <form action="/auth/signup" method="POST">
+    <div class="form-field">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Your username" required>
+    </div>
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+    <div class="form-field">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+    </div>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+    <div class="form-field">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Your password" required>
+    </div>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Sign Up</button>
-
+    <div class="form-field">
+      <button type="submit">SIGN UP</button>
+      <p>Already have an account? <a href="/auth/login">Join us</a></p>
+    </div>
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+</div> --}}
+<div class="container">
+      {{!-- <h1><img src="/images/sample-logo.png" alt="" class="logo-img"></h1> --}}
+  <div class="form-container">
+
+  <h2>CREATE AN ACCOUNT!!</h2>
+    <form action="/auth/signup" method="POST">
+      <div class="form-field">
+        {{!-- <label for="username">Username:</label> --}}
+        <input type="text" id="username" name="username" placeholder="Your username" required>
+      </div>
+
+      <div class="form-field">
+        {{!-- <label for="email">Email:</label> --}}
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+      </div>
+
+      <div class="form-field">
+        {{!-- <label for="password">Password:</label> --}}
+        <input type="password" id="password" name="password" placeholder="Your password" required>
+      </div>
+
+      <div class="form-field">
+        <button type="submit">SIGN UP</button>
+         <p class="form-field p">Already have an account? <a href="/auth/login">Log back in with us</a></p>
+      </div>
+
+      {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
+  <div class="image-container">
+    {{!-- <video src="/Video/giphy.gif" class = "video" type = "gif"></video> --}}
+    <img src="/Video/mixkit-glass-with-ice-with-orange-soda-5099-medium (1).gif" alt="Image" class="image">
+  </div>
 </div>

@@ -77,6 +77,7 @@
 {{!-- <button>Like</button> --}}
 <form action="/project/{{_id}}/like" method = "POST">
 <button> {{likes.length}} likes</button></form>
+<button>Fund Me!</button>
 
 <h2>{{projectName}}</h2>
 <p>Description:  <br>{{
@@ -87,13 +88,15 @@ projectDescription
 
   {{!-- for testing!! --}}
 <h2>comments!</h2>
- {{#each project.comments}}
+ {{#each comments}}
  {{commentBody}}
 {{/each}}
 <form action="/project/comment" method = "POST">
 <input type="hidden" name = "projectId" value = {{_id}}>
 <textarea name="commentBody" ></textarea>
 <button>Add Comment</button>
+
+
 </form>
 
   

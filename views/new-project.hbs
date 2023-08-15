@@ -1,26 +1,43 @@
 {{!-- creating a new project --}}
+<div class="container">
+      {{!-- <h1><img src="/images/sample-logo.png" alt="" class="logo-img"></h1> --}}
+  <div class="form-container">
+     
 
 <h1>Let's create a new project!</h1>
 <form action="project/create" method = "POST" enctype="multipart/form-data">
-<label for="projectName">Project Name:</label>
-        <input type="text" id="projectName" name="projectName" required>
+ 
+ <div class="form-field">
+        <input type="text" id="projectName" name="projectName" placeholder="enter project name" required>
+       </div>
         <br>
 
-        <label for="projectDescription">Project Description:</label>
-        <input type="text" id="projectDescription" name="projectDescription" required>
-        <br>
+ <div class="form-field">
 
-<label for="projectPhoto">Project Photo:</label>
-       <input type="file"   id= "projectPhoto" name="projectPhoto" required>
+        <input type="text" id="projectDescription" placeholder="enter project description" name="projectDescription" required>
+        <br>
+           </div>
+
+ <div class="form-field">
+
+       <input type="file"   id= "projectPhoto" name="projectPhoto" placeholder="upload project photo" required>
 
         <br>
+           </div>
 
-        <label for="projectLink">Project Link:</label>
-        <input type="text" id="projectLink" name="projectLink" required>
-        <br>
+ <div class="form-field">
 
-        <label for="githubLink">Github Link:</label>
-        <input type="text" id="githubLink" name="githubLink" required>
+        <input type="text" id="projectLink" name="projectLink" placeholder=" enter project link" required>
         <br>
+           </div>
+
+ <div class="form-field">
+
+        <input type="text" id="githubLink" name="githubLink" placeholder="enter github link" required>
+        <br>
+           </div>
 <button>create</button>
         </form>
+       </div>
+       </div>
+      
