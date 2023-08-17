@@ -1,43 +1,35 @@
-{{!-- creating a new project --}}
+<section>
+       
+</section>
 <div class="container">
-      {{!-- <h1><img src="/images/sample-logo.png" alt="" class="logo-img"></h1> --}}
-  <div class="form-container">
-     
-
-<h1>Let's create a new project!</h1>
-<form action="project/create" method = "POST" enctype="multipart/form-data">
- 
- <div class="form-field">
-        <input type="text" id="projectName" name="projectName" placeholder="enter project name" required>
-       </div>
-        <br>
-
- <div class="form-field">
-
-        <input type="text" id="projectDescription" placeholder="enter project description" name="projectDescription" required>
-        <br>
-           </div>
-
- <div class="form-field">
-
-       <input type="file"   id= "projectPhoto" name="projectPhoto" placeholder="upload project photo" required>
-
-        <br>
-           </div>
-
- <div class="form-field">
-
-        <input type="text" id="projectLink" name="projectLink" placeholder=" enter project link" required>
-        <br>
-           </div>
-
- <div class="form-field">
-
-        <input type="text" id="githubLink" name="githubLink" placeholder="enter github link" required>
-        <br>
-           </div>
-<button>create</button>
-        </form>
-       </div>
-       </div>
-      
+  <div class="form-container p-4 shadow d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Let's create a new project!</h1>
+      <form action="project/create" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="projectName" class="form-label">Project Name:</label>
+          <input type="text" id="projectName" name="projectName" placeholder="Enter project name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="projectDescription" class="form-label">Project Description:</label>
+          <input type="text" id="projectDescription" name="projectDescription" placeholder="Enter project description" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="projectPhoto" class="form-label">Project Photo:</label>
+          <input type="file" id="projectPhoto" name="projectPhoto" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="projectLink" class="form-label">Project Link:</label>
+          <input type="text" id="projectLink" name="projectLink" placeholder="Enter project link" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="githubLink" class="form-label">GitHub Link:</label>
+          <input type="text" id="githubLink" name="githubLink" placeholder="Enter GitHub link" class="form-control" required>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-info" type="submit">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

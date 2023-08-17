@@ -1,0 +1,49 @@
+{{!-- EDIT PROFILE PAGE --}}
+<div class="container">
+  <div class="form-container p-4 shadow d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Update Your Profile</h1>
+      <form action="/edit-profile" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" id="name" name="name" value="{{ user.name }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" id="username" name="username" value="{{ user.username }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="course" class="form-label">Course:</label>
+          <select class="form-select" id="course" name="course">
+            <option value="Web Dev">Web Dev</option>
+            <option value="Data Analytics">Data Analytics</option>
+            <option value="UX,UI">UX/UI</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="userDescription" class="form-label">User Description:</label>
+          <input type="text" id="userDescription" name="userDescription" value="{{ user.userDescription }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" value="{{ user.email }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="photo" class="form-label">Profile Photo:</label>
+          <input type="file" name="photo" id="photo" class="form-control" value="{{ user.photo }}">
+        </div>
+        <div class="text-center">
+          <button class="btn btn-info" type="submit">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="footer bg-info text-white py-1">
+  <div class="text-center">
+    <ul class="list-unstyled d-flex">
+    </ul>
+    <p>&copy; 2023 Sodapopp. All rights reserved.</p>
+  </div>
+</footer>

@@ -64,8 +64,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
       return User.create({ username, email, password: hashedPassword });
     })
     .then((user) => {
-
-      req.session.currentUser = user
+      req.session.currentUser = user.toObject();
+      delete req.session.currentUser.password;
 
       res.redirect("/logged-in");
     })
@@ -153,7 +153,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
       return;
     }
 
-    res.redirect("/");
+    res.redirect("/logged-in");
   });
 });
 

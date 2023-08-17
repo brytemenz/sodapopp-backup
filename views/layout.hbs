@@ -1,3 +1,4 @@
+{{!-- LAYOUT PAGE --}}
 <html lang="en">
 
   <head>
@@ -6,11 +7,61 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   </head>
 
   <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/logged-in">
+      <img class="logo-img mb-2 mb-lg-0" src="https://res.cloudinary.com/dbba6d41e/image/upload/v1692295986/xd2dhcwmkzifdxxbu04i.jpg" alt="Sodapopp-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form action="/project/search" method="GET" class="d-flex mb-2 mb-lg-0">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+          <button class="btn btn-info" type="submit">Search</button>
+        </form>
+        <li class="nav-item">
+          <a class="nav-link" href="/logged-in">All Projects</a>
+        </li>
+        {{#unless username}}
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">Join Sodapopp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/auth/login">Sign in</a>
+        </li>
+        {{/unless}}
+        {{#if username}}
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/project/create">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Sign out</a>
+        </li>
+        {{/if}}
+      </ul>
+      {{#if username}}
+      <div class="navbar-text">
+        <h2>Hello, {{ username.username }}!</h2>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</nav>
+
+
+
 
     {{{body}}}
 
@@ -18,6 +69,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
 
-</html>
+  </body>
+<footer class="footer bg-info text-white py-1">
+  <div class="text-center">
+    <ul class="list-unstyled d-flex">
+    </ul>
+    <p>&copy; 2023 Sodapopp. All rights reserved.</p>
+  </div>
+</footer>
